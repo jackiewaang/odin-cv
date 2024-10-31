@@ -1,25 +1,25 @@
 const data = {
     personalInfo:{
-        fullName: "Jackie Wang",
-        phoneNo: "+39 3317419240",
-        email: "zjackiewang03@gmail.com",
-        linkedin: "linkedin.com/jackiewang"
+        fullName: "John Doe",
+        phoneNo: "123-456-7890",
+        email: "johndoe@gmail.com",
+        linkedin: "linkedin.com/johndoe"
     },
     educations: [
         {   
             id: 0,
-            school: "University of Warwick",
+            school: "University of Something",
             degree: "Bachelors of Science in Computer Science",
-            location: "Coventry, UK",
+            location: "London, UK",
             date: "Sept 2023 - Jul 2026",
         }
     ],
     experiences: [
         {
             id:0,
-            company: "Mana Sushi",
-            position: "Waiter",
-            location: "Bellaria, Italy",
+            company: "John Doe's company",
+            position: "CEO",
+            location: "London, UK",
             date: "Oct 2022 - Jul 2023",
         }
     ]
