@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-function Nav({activeSection, onBtnClick}){
+function Nav({activeSection, onBtnClick, toPrint}){
 
     
 
@@ -16,6 +16,10 @@ function Nav({activeSection, onBtnClick}){
             <button className="flex flex-col items-center" onClick={() => onBtnClick(2)}>
                 <svg className={`transition rounded-lg p-3 w-16 h-16 ${activeSection == 2 ? 'bg-slate-600' : 'hover:bg-slate-600'}`} xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#F3F3F3"><path d="M146.67-120q-27 0-46.84-19.83Q80-159.67 80-186.67v-466.66q0-27 19.83-46.84Q119.67-720 146.67-720H320v-93.33q0-27 19.83-46.84Q359.67-880 386.67-880h186.66q27 0 46.84 19.83Q640-840.33 640-813.33V-720h173.33q27 0 46.84 19.83Q880-680.33 880-653.33v466.66q0 27-19.83 46.84Q840.33-120 813.33-120H146.67Zm0-66.67h666.66v-466.66H146.67v466.66Zm240-533.33h186.66v-93.33H386.67V-720Zm-240 533.33v-466.66 466.66Z"/></svg>
                 <p>Experience</p>
+            </button>
+            <button className="flex flex-col items-center" onClick={toPrint}>
+                <svg className="hover:bg-slate-600 transition rounded-lg p-3 w-16 h-16" xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#F3F3F3"><path d="M480-315.33 284.67-510.67l47.33-48L446.67-444v-356h66.66v356L628-558.67l47.33 48L480-315.33ZM226.67-160q-27 0-46.84-19.83Q160-199.67 160-226.67V-362h66.67v135.33h506.66V-362H800v135.33q0 27-19.83 46.84Q760.33-160 733.33-160H226.67Z"/></svg>
+                <p>Download</p>
             </button>
         </div>
     )

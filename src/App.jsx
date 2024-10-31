@@ -1,10 +1,30 @@
 import Nav from "./Nav"
 import Forms from "./Forms"
 import Display from "./Display"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import exampleData from "./exampleData"
+import html2canvas from "html2canvas"
+import jsPDF from "jspdf"
 
 function App() {
+
+  const printRef = useRef();
+
+  const generatePDF = async () => {
+    const element = printRef.current;
+
+    const canvas = await html2canvas(element, {scale: 3});
+    const imgData = canvas.toDataURL("image/png");
+
+    const pdf = new jsPDF({
+      orientation: "portrait",
+      unit:"px",
+      format: [canvas.width, canvas.height],
+    });
+
+    pdf.addImage(imgData, "PNG", 0, 0, canvas.width, canvas.height);
+    pdf.save("resume.pdf");
+  }
 
   const [sectionID, setSectionID] = useState(0);
   const [personal, setPersonal] = useState(exampleData.personalInfo);
@@ -93,9 +113,9 @@ function App() {
   // make different handlers for education and experience
   return (
     <div className="h-screen bg-slate-800 grid grid-cols-12 gap-4">
-      <Nav activeSection={sectionID} onBtnClick={handleSection}/>
+      <Nav activeSection={sectionID} onBtnClick={handleSection} toPrint={generatePDF}/>
       <Forms activeSection={sectionID} onOtherChange={handleArrays} onInfoChange={handleChange} sectionZero={personal} sectionOne={education} sectionTwo={experience} onAddEducation={addEducation}/> 
-      <Display sectionZero={personal} sectionOne={education} sectionTwo={experience} />
+      <Display giveRef={printRef} sectionZero={personal} sectionOne={education} sectionTwo={experience} />
     </div>
   )
 }
